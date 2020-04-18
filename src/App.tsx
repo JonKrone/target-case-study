@@ -2,6 +2,8 @@ import React from 'react'
 import './App.css'
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import StopList from './components/StopList'
+import RouteSelector from './components/RouteSelector'
 
 function App() {
   return (
@@ -13,44 +15,12 @@ function App() {
         <header style={{ textAlign: 'center' }}>
           <h1>Your route helper</h1>
         </header>
+
         <div style={{ display: 'flex', height: '84%' }}>
-          <nav
-            style={{
-              background: 'grey',
-              flexGrow: 1,
-            }}
-          >
-            <ul
-              style={{
-                paddingLeft: '1rem',
-                listStyle: 'none',
-              }}
-            >
-              <li>
-                Route one <Link to="/dynamic-link">North</Link>
-                <Link to="/dynamic-link">South</Link>
-              </li>
-            </ul>
-          </nav>
+          <RouteSelector />
 
           <Route>
-            <section
-              style={{
-                backgroundColor: 'cadetblue',
-                flexGrow: 5,
-              }}
-            >
-              {false ? (
-                <>No route selected!</>
-              ) : (
-                <>
-                  <h1 style={{ textAlign: 'center' }}>Stops</h1>
-                  <ul>
-                    <li>Stop 1</li>
-                  </ul>
-                </>
-              )}
-            </section>
+            <StopList />
           </Route>
         </div>
       </div>
