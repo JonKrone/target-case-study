@@ -3,8 +3,50 @@ import './App.css'
 
 function App() {
   return (
-    <div className="TripExplorer">
-      <div></div>
+    <div
+      className="container"
+      style={{ width: 700, height: 400, backgroundColor: 'beige' }}
+    >
+      <header style={{ textAlign: 'center' }}>
+        <h1>Your route helper</h1>
+      </header>
+      <div style={{ display: 'flex', height: '84%' }}>
+        <nav
+          style={{
+            background: 'grey',
+            flexGrow: 1,
+          }}
+        >
+          <ul
+            style={{
+              paddingLeft: '1rem',
+              listStyle: 'none',
+            }}
+          >
+            <li>
+              Route one <button>North</button>
+              <button>South</button>
+            </li>
+          </ul>
+        </nav>
+        <section
+          style={{
+            backgroundColor: 'cadetblue',
+            flexGrow: 5,
+          }}
+        >
+          {false ? (
+            <>No route selected!</>
+          ) : (
+            <>
+              <h1 style={{ textAlign: 'center' }}>Stops</h1>
+              <ul>
+                <li>Stop 1</li>
+              </ul>
+            </>
+          )}
+        </section>
+      </div>
     </div>
   )
 }
