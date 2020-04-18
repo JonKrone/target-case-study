@@ -1,5 +1,6 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Provider } from 'use-http'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import './App.css'
 import StopList from './components/StopList'
@@ -7,24 +8,36 @@ import RouteSelector from './components/RouteSelector'
 
 function App() {
   return (
-    <Router>
-      <div
-        className="container"
-        style={{ width: 700, height: 400, backgroundColor: 'beige' }}
-      >
-        <header style={{ textAlign: 'center' }}>
-          <h1>Your route helper</h1>
-        </header>
+    <Provider
+      url="https://svc.metrotransit.org/NexTrip"
+      options={{ mode: 'cors' }}
+    >
+      <Router>
+        <div
+          style={{
+            width: 1000,
+            height: 600,
+            margin: 'auto',
+            backgroundColor: 'beige',
+          }}
+        >
+          <header style={{ textAlign: 'center' }}>
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <h1>Your Route Helper</h1>
+            </Link>
+          </header>
 
-        <div style={{ display: 'flex', height: '84%' }}>
-          <RouteSelector />
+          <div style={{ display: 'flex', height: '100%' }}>
+            <RouteSelector />
 
-          <Route path="/:route/:direction">
-            <StopList />
-          </Route>
+            {/* Ooo, had no idea you can define multiple path matches */}
+            <Route path={['/:route/:direction', '/']}>
+              <StopList />
+            </Route>
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </Provider>
   )
 }
 

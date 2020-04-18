@@ -5,7 +5,7 @@ interface StopItemProps {
 }
 
 export const StopItem: React.FC<StopItemProps> = ({ item: { Text } }) => {
-  return <li>{Text}</li>
+  return <li style={{ paddingTop: '0.5rem' }}>{Text}</li>
 }
 
 export default StopItem

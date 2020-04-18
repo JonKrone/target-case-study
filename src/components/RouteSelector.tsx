@@ -1,30 +1,37 @@
 import React from 'react'
 import useFetch from 'use-http' // I haven't used this library before, testing it out :)
 import { RouteItem } from './RouteItem'
+import { useRouteMatch } from 'react-router-dom'
 
 export const RouteSelector: React.FC<{}> = () => {
+  const match = useRouteMatch('/:route/:dir')
+  const params: Record<string, string> = match?.params || {}
+
   // TODO(krone): handle error
   const { error, data = [] } = useFetch<NextTrip.Route[]>(
-    'https://svc.metrotransit.org/NexTrip/Routes',
-    { mode: 'cors' },
+    { path: '/Routes', mode: 'cors' },
     []
   )
 
   return (
     <nav
       style={{
-        background: 'grey',
-        flexGrow: 1,
+        width: '50%',
+        overflow: 'auto',
       }}
     >
       <ul
         style={{
-          paddingLeft: '1rem',
+          paddingLeft: 0,
           listStyle: 'none',
         }}
       >
-        {data.slice(0, 5).map((route) => (
-          <RouteItem key={route.Route} item={route} />
+        {data.map((route) => (
+          <RouteItem
+            key={route.Route}
+            item={route}
+            isActive={params.route === route.Route}
+          />
         ))}
       </ul>
     </nav>
