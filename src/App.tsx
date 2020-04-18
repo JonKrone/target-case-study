@@ -1,53 +1,60 @@
 import React from 'react'
 import './App.css'
 
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+
 function App() {
   return (
-    <div
-      className="container"
-      style={{ width: 700, height: 400, backgroundColor: 'beige' }}
-    >
-      <header style={{ textAlign: 'center' }}>
-        <h1>Your route helper</h1>
-      </header>
-      <div style={{ display: 'flex', height: '84%' }}>
-        <nav
-          style={{
-            background: 'grey',
-            flexGrow: 1,
-          }}
-        >
-          <ul
+    <Router>
+      <div
+        className="container"
+        style={{ width: 700, height: 400, backgroundColor: 'beige' }}
+      >
+        <header style={{ textAlign: 'center' }}>
+          <h1>Your route helper</h1>
+        </header>
+        <div style={{ display: 'flex', height: '84%' }}>
+          <nav
             style={{
-              paddingLeft: '1rem',
-              listStyle: 'none',
+              background: 'grey',
+              flexGrow: 1,
             }}
           >
-            <li>
-              Route one <button>North</button>
-              <button>South</button>
-            </li>
-          </ul>
-        </nav>
-        <section
-          style={{
-            backgroundColor: 'cadetblue',
-            flexGrow: 5,
-          }}
-        >
-          {false ? (
-            <>No route selected!</>
-          ) : (
-            <>
-              <h1 style={{ textAlign: 'center' }}>Stops</h1>
-              <ul>
-                <li>Stop 1</li>
-              </ul>
-            </>
-          )}
-        </section>
+            <ul
+              style={{
+                paddingLeft: '1rem',
+                listStyle: 'none',
+              }}
+            >
+              <li>
+                Route one <Link to="/dynamic-link">North</Link>
+                <Link to="/dynamic-link">South</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <Route>
+            <section
+              style={{
+                backgroundColor: 'cadetblue',
+                flexGrow: 5,
+              }}
+            >
+              {false ? (
+                <>No route selected!</>
+              ) : (
+                <>
+                  <h1 style={{ textAlign: 'center' }}>Stops</h1>
+                  <ul>
+                    <li>Stop 1</li>
+                  </ul>
+                </>
+              )}
+            </section>
+          </Route>
+        </div>
       </div>
-    </div>
+    </Router>
   )
 }
 
