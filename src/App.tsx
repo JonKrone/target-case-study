@@ -1,7 +1,7 @@
 import React from 'react'
-import './App.css'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import './App.css'
 import StopList from './components/StopList'
 import RouteSelector from './components/RouteSelector'
 
@@ -19,7 +19,7 @@ function App() {
         <div style={{ display: 'flex', height: '84%' }}>
           <RouteSelector />
 
-          <Route>
+          <Route path="/:route/:direction">
             <StopList />
           </Route>
         </div>

@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
 import useFetch from 'use-http' // I haven't used this library before, testing it out :)
+import { RouteItem } from './RouteItem'
 
 export const RouteSelector: React.FC<{}> = () => {
-  // const _ = useFetch('http://svc.metrotransit.org/NexTrip/Routes')
+  // TODO(krone): handle error
+  const { error, data = [] } = useFetch<NextTrip.Route[]>(
+    'https://svc.metrotransit.org/NexTrip/Routes',
+    { mode: 'cors' },
+    []
+  )
 
   return (
     <nav
@@ -18,15 +23,9 @@ export const RouteSelector: React.FC<{}> = () => {
           listStyle: 'none',
         }}
       >
-        <li>
-          Route one{' '}
-          <Link to="/dynamic-link">
-            <button>North</button>
-          </Link>
-          <Link to="/dynamic-link">
-            <button>South</button>
-          </Link>
-        </li>
+        {data.slice(0, 5).map((route) => (
+          <RouteItem key={route.Route} item={route} />
+        ))}
       </ul>
     </nav>
   )
