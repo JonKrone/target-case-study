@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders 1`] = `
+<DocumentFragment>
+  <div
+    style="display: flex; justify-content: center; align-items: center; margin-top: 10%;"
+  >
+    <div
+      style="display: flex; width: 1000px; height: 600px; flex-direction: column; background-color: white; border-radius: 5px;"
+    >
+      <header
+        style="height: 15%; text-align: center;"
+      >
+        <a
+          href="/"
+          style="text-decoration: none;"
+        >
+          <h1>
+            NextTrip tips
+          </h1>
+        </a>
+      </header>
+      <section
+        style="display: flex; height: 85%; border-top: 2px solid #4c5c68;"
+      >
+        <nav
+          style="width: 50%; overflow: auto; border-bottom-left-radius: 5px; display: none;"
+        >
+          <ul
+            style="margin: 0px; padding-left: 0px; list-style: none;"
+          />
+        </nav>
+        <section
+          style="flex: 1; overflow-y: auto; border-bottom-right-radius: 5px; display: none;"
+        >
+          <h1
+            style="text-align: center;"
+          >
+            Please select a route
+          </h1>
+        </section>
+        <h1
+          style="text-align: center; width: 100%;"
+        >
+          Loading Routes
+        </h1>
+      </section>
+    </div>
+  </div>
+</DocumentFragment>
+`;

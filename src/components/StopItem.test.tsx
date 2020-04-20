@@ -9,7 +9,7 @@ describe('StopItem', () => {
   it('renders', () => {
     const { asFragment, getByText } = render(<StopItem item={testStop} />)
 
-    expect(getByText(/Wallaby/)).toBeTruthy()
+    expect(getByText(/Wallaby/)).toBeInTheDocument()
     expect(asFragment()).toMatchSnapshot()
   })
 })

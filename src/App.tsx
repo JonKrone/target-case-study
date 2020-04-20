@@ -26,9 +26,9 @@ function App() {
           <div
             style={{
               display: 'flex',
-              flexDirection: 'column',
               width: 1000,
               height: 600,
+              flexDirection: 'column',
               backgroundColor: 'white',
               border: '1px solid var(--border-color)',
               borderRadius: '5px',
@@ -49,9 +49,9 @@ function App() {
             >
               <Suspense
                 fallback={
-                  <div style={{ textAlign: 'center', width: '100%' }}>
-                    <h1>Loading Routes</h1>
-                  </div>
+                  <h1 style={{ textAlign: 'center', width: '100%' }}>
+                    Loading Routes
+                  </h1>
                 }
               >
                 <RouteList />

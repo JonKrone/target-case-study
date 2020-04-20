@@ -18,8 +18,8 @@ describe('RouteItem', () => {
       <RouteItem item={testRoute} />
     )
 
-    expect(getByText(/Secret/)).toBeTruthy()
-    expect(getByText(/Southbound/)).toBeTruthy()
+    expect(getByText(/Secret/)).toBeInTheDocument()
+    expect(getByText(/Southbound/)).toBeInTheDocument()
 
     expect(asFragment()).toMatchSnapshot()
   })

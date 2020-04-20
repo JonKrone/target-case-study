@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StopItem renders with no selection 1`] = `
+<DocumentFragment>
+  <section
+    style="flex: 1; overflow-y: auto; border-bottom-right-radius: 5px;"
+  >
+    <h1
+      style="text-align: center;"
+    >
+      Please select a route
+    </h1>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`StopItem renders with selection 1`] = `
+<DocumentFragment>
+  <section
+    style="flex: 1; overflow-y: auto; border-bottom-right-radius: 5px;"
+  >
+    <h1
+      style="text-align: center;"
+    >
+      Southbound Stops
+    </h1>
+    <ol
+      style="padding-left: 3rem;"
+    >
+      <li
+        style="padding-top: 0.5rem;"
+      >
+        Stop 1
+      </li>
+      <li
+        style="padding-top: 0.5rem;"
+      >
+        Stop 2
+      </li>
+    </ol>
+  </section>
+</DocumentFragment>
+`;
