@@ -49,7 +49,7 @@ function App() {
             >
               <Suspense
                 fallback={
-                  <div style={{ textAlign: 'center' }}>
+                  <div style={{ textAlign: 'center', width: '100%' }}>
                     <h1>Loading Routes</h1>
                   </div>
                 }

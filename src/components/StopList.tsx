@@ -21,6 +21,7 @@ export const StopList: React.FC<{}> = () => {
   return (
     <section
       style={{
+        flex: '1',
         overflowY: 'auto',
         borderBottomRightRadius: '5px',
       }}
