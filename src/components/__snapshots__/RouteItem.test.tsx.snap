@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RouteItem renders 1`] = `
+<DocumentFragment>
+  <li
+    style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0px;"
+  >
+    <h4
+      style="width: 45%; margin: 0px; padding-left: 1rem;"
+    >
+      Secret
+    </h4>
+    <div
+      style="padding-right: 1rem;"
+    >
+      <a
+        href="/81/1"
+      >
+        <button
+          style="width: 6rem; padding: 0.5rem;"
+          tabindex="-1"
+        >
+          Southbound
+        </button>
+      </a>
+    </div>
+  </li>
+</DocumentFragment>
+`;

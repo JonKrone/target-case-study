@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RouteList renders 1`] = `
+<DocumentFragment>
+  <nav
+    style="width: 50%; overflow: auto; border-bottom-left-radius: 5px;"
+  >
+    <ul
+      style="margin: 0px; padding-left: 0px; list-style: none;"
+    >
+      RouteItem
+    </ul>
+  </nav>
+</DocumentFragment>
+`;
