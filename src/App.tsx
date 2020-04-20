@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import './App.css'
 import StopList from './components/StopList'
-import RouteSelector from './components/RouteSelector'
+import RouteList from './components/RouteList'
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            marginTop: '20%',
+            marginTop: '10%',
           }}
         >
           <div
@@ -54,7 +54,7 @@ function App() {
                   </div>
                 }
               >
-                <RouteSelector />
+                <RouteList />
 
                 {/* New finding: you can describe multiple path matches */}
                 <Route path={['/:route/:direction', '/']}>

@@ -48,3 +48,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - use-http (d.b.a. useFetch)
 - css variables
 - React's Suspense
+- ReactTestingLibrary, and its testing patterns

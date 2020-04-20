@@ -1,19 +1,20 @@
 import React from 'react'
 import useFetch from 'use-http'
-import { Link } from 'react-router-dom'
+import { Link, useRouteMatch } from 'react-router-dom'
 import { capitalize } from '../utils/utils'
 
 interface RouteItemProps {
   item: NextTrip.Route
-  isActive: boolean
-  activeDir: string | undefined
 }
 
-// Could utilize a virtualized list to limit the fetching
 export const RouteItem: React.FC<RouteItemProps> = ({
   item: { Description, Route },
-  isActive,
 }) => {
+  const match = useRouteMatch('/:route/:dir')
+  const params: Record<string, string> = match?.params || {}
+  const isActive = params.route === Route
+  // const activeDir = cardinalNumMap[params.dir]
+
   // TODO(krone): handle error
   const { error, data = [] } = useFetch<NextTrip.RouteDirection[]>(
     {
@@ -56,3 +57,5 @@ export const RouteItem: React.FC<RouteItemProps> = ({
     </li>
   )
 }
+
+export default RouteItem
