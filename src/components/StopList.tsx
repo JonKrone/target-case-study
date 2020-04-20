@@ -16,7 +16,7 @@ export const StopList: React.FC<{}> = () => {
     // this custom, conditional fetching could be mitigated by a `skip` option
     // https://github.com/ava/use-http/issues/245
     if (isRouteSelected) get(`/Stops/${route}/${direction}`)
-  }, [route, direction])
+  }, [route, direction, get, isRouteSelected])
 
   return (
     <section
