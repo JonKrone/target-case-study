@@ -28,7 +28,7 @@ describe('RouteList', () => {
   it('invokes useFetch', () => {
     render(<RouteList />)
     expect(useFetch).toHaveBeenCalledWith(
-      expect.objectContaining({ path: '/Directions/81' }),
+      expect.objectContaining({ path: '/Routes' }),
       []
     )
   })
