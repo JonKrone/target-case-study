@@ -19,8 +19,9 @@ This is a standard CRA / Jest testing setup, so see Facebook's section about [ru
 ## Assumptions
 
 - Fetching (and caching) each Route's Directions would not lead me to hitting API limits
-- This application is to be viewed in a Desktop-sized screen
-- The application in its toy-project form does not need to be very resiliant in the face of unexpected behavior such as failing requests
+- The data exposed by the NextTrip API changes infrequently and updating caches every 24hrs is sufficient
+- The application is to be viewed in a Desktop-sized screen
+- The application in its toy-project form does not need to be very resiliant to unexpected behavior such as failing requests
 
 ## My time with the project
 
