@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StopItem renders 1`] = `
+<DocumentFragment>
+  <li
+    style="padding-top: 0.5rem;"
+  >
+    P. Sherman 42 Wallaby Way, Sydney
+  </li>
+</DocumentFragment>
+`;
