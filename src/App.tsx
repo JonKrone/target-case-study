@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Provider } from 'use-http'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
@@ -8,32 +8,60 @@ import RouteSelector from './components/RouteSelector'
 
 function App() {
   return (
+    // It looks like use-https is not properly persisting multiple sequential calls
+    // I'll be posting an issue in the project once I can replicate it in a codesandbox
     <Provider
       url="https://svc.metrotransit.org/NexTrip"
-      options={{ mode: 'cors' }}
+      options={{ mode: 'cors', persist: true }}
     >
       <Router>
         <div
           style={{
-            width: 1000,
-            height: 600,
-            margin: 'auto',
-            backgroundColor: 'beige',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginTop: '20%',
           }}
         >
-          <header style={{ textAlign: 'center' }}>
-            <Link to="/" style={{ textDecoration: 'none' }}>
-              <h1>Your Route Helper</h1>
-            </Link>
-          </header>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              width: 1000,
+              height: 600,
+              backgroundColor: 'white',
+              border: '1px solid var(--border-color)',
+              borderRadius: '5px',
+            }}
+          >
+            <header style={{ height: '15%', textAlign: 'center' }}>
+              <Link to="/" style={{ textDecoration: 'none' }}>
+                <h1>NextTrip tips</h1>
+              </Link>
+            </header>
 
-          <div style={{ display: 'flex', height: '100%' }}>
-            <RouteSelector />
+            <section
+              style={{
+                display: 'flex',
+                height: '85%',
+                borderTop: '2px solid #4c5c68',
+              }}
+            >
+              <Suspense
+                fallback={
+                  <div style={{ textAlign: 'center' }}>
+                    <h1>Loading Routes</h1>
+                  </div>
+                }
+              >
+                <RouteSelector />
 
-            {/* Ooo, had no idea you can define multiple path matches */}
-            <Route path={['/:route/:direction', '/']}>
-              <StopList />
-            </Route>
+                {/* New finding: you can describe multiple path matches */}
+                <Route path={['/:route/:direction', '/']}>
+                  <StopList />
+                </Route>
+              </Suspense>
+            </section>
           </div>
         </div>
       </Router>

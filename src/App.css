@@ -1,0 +1,19 @@
+:root {
+  --border-color: #4c5c68;
+  --background-color: #dcdcdd;
+}
+
+nav li:nth-child(odd) {
+  background-color: #c5c3c6;
+}
+
+button {
+  border: lightgray;
+  background: lightgray;
+}
+
+button:hover {
+  cursor: pointer;
+  background: #1985a1;
+  border: #1985a1;
+}

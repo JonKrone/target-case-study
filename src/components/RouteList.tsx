@@ -1,15 +1,16 @@
 import React from 'react'
-import useFetch from 'use-http' // I haven't used this library before, testing it out :)
+import useFetch from 'use-http'
 import { RouteItem } from './RouteItem'
 import { useRouteMatch } from 'react-router-dom'
+import { cardinalNumMap } from '../utils/utils'
 
-export const RouteSelector: React.FC<{}> = () => {
+export const RouteList: React.FC<{}> = () => {
   const match = useRouteMatch('/:route/:dir')
   const params: Record<string, string> = match?.params || {}
 
   // TODO(krone): handle error
   const { error, data = [] } = useFetch<NextTrip.Route[]>(
-    { path: '/Routes', mode: 'cors' },
+    { path: '/Routes', suspense: true },
     []
   )
 
@@ -18,10 +19,12 @@ export const RouteSelector: React.FC<{}> = () => {
       style={{
         width: '50%',
         overflow: 'auto',
+        borderBottomLeftRadius: '5px',
       }}
     >
       <ul
         style={{
+          margin: 0,
           paddingLeft: 0,
           listStyle: 'none',
         }}
@@ -31,6 +34,7 @@ export const RouteSelector: React.FC<{}> = () => {
             key={route.Route}
             item={route}
             isActive={params.route === route.Route}
+            activeDir={cardinalNumMap[params.dir]}
           />
         ))}
       </ul>
@@ -38,4 +42,4 @@ export const RouteSelector: React.FC<{}> = () => {
   )
 }
 
-export default RouteSelector
+export default RouteList
