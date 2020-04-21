@@ -9,9 +9,9 @@ export const StopList: React.FC<{}> = () => {
   const { route, direction } = useParams()
   const isRouteSelected = route && direction
 
-  // TODO(krone): handle error
   // intentionally not handling loading state: the fetch happens so fast it would be a flash of content
   const { get, error, data = [] } = useFetch<NextTrip.Stop[]>()
+  if (error) throw error
   useEffect(() => {
     // this custom, conditional fetching could be mitigated by a `skip` option
     // https://github.com/ava/use-http/issues/245

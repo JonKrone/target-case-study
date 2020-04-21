@@ -15,7 +15,6 @@ export const RouteItem: React.FC<RouteItemProps> = ({
   const isActive = params.route === Route
   // const activeDir = cardinalNumMap[params.dir]
 
-  // TODO(krone): handle error
   const { error, data = [] } = useFetch<NextTrip.RouteDirection[]>(
     {
       path: `/Directions/${Route}`,
@@ -23,6 +22,7 @@ export const RouteItem: React.FC<RouteItemProps> = ({
     },
     []
   )
+  if (error) throw error
 
   return (
     <li

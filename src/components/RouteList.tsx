@@ -3,11 +3,11 @@ import useFetch from 'use-http'
 import RouteItem from './RouteItem'
 
 export const RouteList: React.FC<{}> = () => {
-  // TODO(krone): handle error
   const { error, data = [] } = useFetch<NextTrip.Route[]>(
     { path: '/Routes', suspense: true },
     []
   )
+  if (error) throw error
 
   return (
     <nav

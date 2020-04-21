@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react'
 import { Provider } from 'use-http'
+import ErrorBoundary, { FallbackProps } from 'react-error-boundary'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import './App.css'
@@ -47,20 +48,16 @@ function App() {
                 borderTop: '2px solid #4c5c68',
               }}
             >
-              <Suspense
-                fallback={
-                  <h1 style={{ textAlign: 'center', width: '100%' }}>
-                    Loading Routes
-                  </h1>
-                }
-              >
-                <RouteList />
+              <ErrorBoundary FallbackComponent={ErrorMsg}>
+                <Suspense fallback={LoadingMsg}>
+                  <RouteList />
 
-                {/* New finding: you can describe multiple path matches */}
-                <Route path={['/:route/:direction', '/']}>
-                  <StopList />
-                </Route>
-              </Suspense>
+                  {/* New finding: you can describe multiple path matches */}
+                  <Route path={['/:route/:direction', '/']}>
+                    <StopList />
+                  </Route>
+                </Suspense>
+              </ErrorBoundary>
             </section>
           </div>
         </div>
@@ -68,6 +65,17 @@ function App() {
     </Provider>
   )
 }
+
+const LoadingMsg = (
+  <h1 style={{ textAlign: 'center', width: '100%' }}>Loading Routes</h1>
+)
+
+const ErrorMsg: React.FC<FallbackProps> = ({ error }) => (
+  <div style={{ textAlign: 'center', width: '100%' }}>
+    <h1>Whoops, an error occured</h1>
+    <p>{error?.message}</p>
+  </div>
+)
 
 export default App
 
