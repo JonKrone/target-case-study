@@ -21,7 +21,7 @@ This is a standard CRA / Jest testing setup, so see Facebook's section about [ru
 - Fetching (and caching) each Route's Directions would not lead me to hitting API limits
 - The data exposed by the NextTrip API changes infrequently and updating caches every 24hrs is sufficient
 - The application is to be viewed in a Desktop-sized screen
-- The application in its toy-project form does not need to be very resiliant to unexpected behavior such as failing requests
+- The application, in its toy-project, form does not need to be very resiliant to unexpected behavior such as failing requests
 
 ## My time with the project
 
@@ -35,4 +35,4 @@ As this mini-project was pretty simple, I took this as an opportunity to try out
   - Suspense and ErrorBoundaries, together, can drastically simplify a Component's branches of code flow and I am very excited to adopt them broadly.
 - ReactTestingLibrary, and its testing patterns
   - I have heard a lot about RTL but have not had the opportunity to use it very much.
-  - It espouses for a very different mental model for testing web applications which, after spending the morning writing some tests, I know I will have to spend more time understanding.
+  - It espouses a very different mental model for testing web applications which, after spending the morning writing some tests, I know I will have to spend more time appreciating.
